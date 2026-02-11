@@ -1,0 +1,203 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* USA Retro Design System */
+  --font-size: 16px;
+  
+  /* Light Mode Colors */
+  --bg-light: #F7F7F7;
+  --text-dark: #1A1A1A;
+  --accent-red: #B33A3A;
+  --accent-blue: #2E4A78;
+  --accent-beige: #E8DCC2;
+  
+  /* Dark Mode Colors */
+  --bg-dark: #0F0F0F;
+  --text-light: #F2F2F2;
+  --accent-gold: #C9A86A;
+  
+  /* Default to light mode */
+  --background: var(--bg-light);
+  --foreground: var(--text-dark);
+  
+  /* Typography Scale */
+  --text-h1: 4rem; /* 64px */
+  --text-h2: 3rem; /* 48px */
+  --text-h3: 2rem; /* 32px */
+  --text-body-lg: 1.25rem; /* 20px */
+  --text-body-md: 1.125rem; /* 18px */
+  --text-body-sm: 1rem; /* 16px */
+  --text-nav: 1.125rem; /* 18px */
+  
+  /* Spacing System */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-6: 1.5rem; /* 24px */
+  --space-8: 2rem; /* 32px */
+  --space-12: 3rem; /* 48px */
+  --space-16: 4rem; /* 64px */
+  --space-24: 6rem; /* 96px */
+  
+  /* Border Radius */
+  --radius-sm: 0.5rem; /* 8px */
+  --radius-md: 0.75rem; /* 12px */
+  --radius-lg: 1rem; /* 16px */
+  
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Default system colors for compatibility */
+  --card: #ffffff;
+  --card-foreground: var(--text-dark);
+  --popover: #ffffff;
+  --popover-foreground: var(--text-dark);
+  --primary: var(--accent-red);
+  --primary-foreground: #ffffff;
+  --secondary: var(--accent-blue);
+  --secondary-foreground: #ffffff;
+  --muted: var(--accent-beige);
+  --muted-foreground: var(--text-dark);
+  --accent: var(--accent-beige);
+  --accent-foreground: var(--text-dark);
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --switch-background: #cbced4;
+  --ring: #B33A3A;
+  --radius: 0.625rem;
+}
+
+.dark {
+  --background: var(--bg-dark);
+  --foreground: var(--text-light);
+  --card: var(--bg-dark);
+  --card-foreground: var(--text-light);
+  --popover: #1A1A1A;
+  --popover-foreground: var(--text-light);
+  --primary: var(--accent-blue);
+  --primary-foreground: #ffffff;
+  --secondary: var(--accent-gold);
+  --secondary-foreground: var(--bg-dark);
+  --muted: #2A2A2A;
+  --muted-foreground: #A0A0A0;
+  --accent: var(--accent-gold);
+  --accent-foreground: var(--bg-dark);
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: var(--accent-red);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-retro-red: var(--accent-red);
+  --color-vintage-blue: var(--accent-blue);
+  --color-accent-beige: var(--accent-beige);
+  --color-accent-gold: var(--accent-gold);
+  --color-bg-light: var(--bg-light);
+  --color-bg-dark: var(--bg-dark);
+  --color-text-light: var(--text-light);
+  --color-text-dark: var(--text-dark);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  html {
+    font-size: var(--font-size);
+    scroll-behavior: smooth;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: var(--text-h1);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: var(--text-h2);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: var(--text-h3);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.4;
+  }
+
+  h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: var(--text-body-lg);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.5;
+  }
+
+  p {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--text-body-md);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.7;
+  }
+
+  label {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--text-body-sm);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: var(--text-body-md);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.5;
+  }
+
+  input, textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: var(--text-body-sm);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.5;
+  }
+}
